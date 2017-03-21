@@ -1,0 +1,16 @@
+<div class="container">
+	<div *ngIf="profile" class="profile">
+		<h1>{{profile[1].facebook.name}}</h1>
+	</div>
+	<div *ngIf="profile" class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 220, "percentPosition": true }'>
+		<div *ngFor="let pin of profile[0]; let even = even" [ngClass]="{even: even}" class="grid-item">
+			<div>
+				<img class="grid-thumbnail" src={{pin.url}} onError="this.src='http://mdmobile.pl/wp-content/uploads/2014/09/default-no-image.png'" />
+				<p>{{pin.title}}</p>
+			</div>
+			<div class="info">
+				<h6>added by: <span class="author">{{pin.author}}</span></h6><div class="delete" (click)="onDeleteClick(pin)">X</div>
+			</div>
+		</div>
+	</div>
+</div>

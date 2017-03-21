@@ -1,0 +1,15 @@
+<div class="container">
+	<div *ngIf="pins" class="grid">
+		<div *ngFor="let pin of pins[0]; let even = even" [ngClass]="{even: even}" class="grid-item">
+			<div class="thumbnailDiv">
+				<img class="grid-thumbnail" src={{pin.url}} onError="this.src='http://mdmobile.pl/wp-content/uploads/2014/09/default-no-image.png'" />
+				<p>{{pin.title}}</p>
+			</div>
+			<div class="info">
+				<h6>added by: <span class="author">{{pin.author}}</span></h6><div class="votes" (click)="onVoteClick(pin)">{{pin.votes}}</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+

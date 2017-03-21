@@ -1,0 +1,24 @@
+<nav class="nav navbar navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapsed" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Pinterest</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+        	<ul class="nav navbar-nav navbar-left">
+        		<li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]='["/"]'>Home</a></li>
+        	</ul>
+        	<ul class="nav navbar-nav navbar-right">
+        	   <a class="btn btn-default" *ngIf="!authService.isLogged()" href="http://localhost:8080/auth/facebook">Login<img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-128.png"></a>
+                <li *ngIf="authService.isLogged()"><a [routerLink]='["profile"]'>My Pins</a></li>
+                <li *ngIf="authService.isLogged()"><a [routerLink]='["add"]'>Add New</a></li>
+                <li *ngIf="authService.isLogged()"><a (click)='onLogoutClick()'>Logout</a></li>
+
+        	</ul>
+        </div>
+    </div>
+</nav>     
